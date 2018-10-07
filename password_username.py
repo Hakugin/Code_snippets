@@ -9,16 +9,18 @@ CHARS = [x for x in string.ascii_letters+string.digits \
          if x not in ['i','I','l','L','o','O','0','1']]
 
 def gen_password(size=8, chars=CHARS):
-  # By default creates a random 8 character password
     return ''.join(random.choice(chars) for i in range(size))
 
 #--------------------------------------------------------------------------------
-# Basic Username generator
+# Basic Username convertor
 #--------------------------------------------------------------------------------
-def gen_username(in_data):
-  # Takes a regular name (first & last) and creates a lowercase username
-  # IE: 'John Doe' becomes jdoe
-    first, last = in_data.lower().split(' ')
+def gen_username(name_in):
+  # Generate a username based on supplied First and Last name
+    if ',' in name_in:
+        last, first = name_in.lower().split(',')
+    elseif ' ' in name_in:
+        first, last = in_data.lower().split(' ')
+    last, first = last.strip(), first.strip()
     return first[0]+last
 
 #--------------------------------------------------------------------------------
