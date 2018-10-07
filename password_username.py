@@ -13,9 +13,13 @@ def gen_password(size=8, chars=CHARS):
     return ''.join(random.choice(chars) for i in range(size))
 
 #--------------------------------------------------------------------------------
-# 
+# Basic Username generator
 #--------------------------------------------------------------------------------
-
+def gen_username(in_data):
+  # Takes a regular name (first & last) and creates a lowercase username
+  # IE: 'John Doe' becomes jdoe
+    first, last = in_data.lower().split(' ')
+    return first[0]+last
 
 #--------------------------------------------------------------------------------
 # 
